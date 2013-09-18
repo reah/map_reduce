@@ -42,4 +42,8 @@ classes:
 clean:
 	rm -rf classes $(TARGET)
 
+doublepair:
+	$(JAVAC) -d classes DoublePair.java
+	java -cp $(CLASSPATH):classes DoublePair 
+
 .PHONY: clean all
