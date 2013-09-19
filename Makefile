@@ -42,7 +42,7 @@ classes:
 clean:
 	rm -rf classes $(TARGET)
 
-doublepair:
+doublepair: classes
 	$(JAVAC) -d classes DoublePair.java
 	java -cp $(CLASSPATH):classes DoublePair 
 
