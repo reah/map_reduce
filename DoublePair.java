@@ -73,8 +73,8 @@ public class DoublePair implements Writable {
      */
     public void write(DataOutput out) throws IOException {
         // YOUR CODE HERE
-        out.write(x);
-        out.write(y);
+        out.writeDouble(x);
+        out.writeDouble(y);
     }
 
     /**
