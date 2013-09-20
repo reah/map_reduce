@@ -1,8 +1,8 @@
 /*
  * CS 61C Fall 2013 Project 1
  *
- * DoublePair.java is a class which stores two doubles and 
- * implements the Writable interface. It can be used as a 
+ * DoublePair.java is a class which stores two doubles and
+ * implements the Writable interface. It can be used as a
  * custom value for Hadoop. To use this as a key, you can
  * choose to implement the WritableComparable interface,
  * although that is not necessary for credit.
@@ -27,7 +27,7 @@ public class DoublePair implements Writable {
 
     /**
      * Constructs a DoublePair containing double1 and double2.
-     */ 
+     */
     public DoublePair(double double1, double double2) {
         // YOUR CODE HERE
 
@@ -38,7 +38,7 @@ public class DoublePair implements Writable {
      */
     public double getDouble1() {
         // YOUR CODE HERE
-        
+
     }
 
     /**
@@ -46,7 +46,8 @@ public class DoublePair implements Writable {
      */
     public double getDouble2() {
         // YOUR CODE HERE
-        
+
+
     }
 
     /**
