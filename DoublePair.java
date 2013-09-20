@@ -85,4 +85,6 @@ public class DoublePair implements Writable {
         x = in.readDouble();
         y = in.readDouble();
     }
+
+    public static void main(String args[]){}
 }
