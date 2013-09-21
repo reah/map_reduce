@@ -94,6 +94,7 @@ public class Proj1{
                 }
             }
 
+        // helper function to calculate shortest distance between target words and current word
         private int closestDist(int[] arr, int d){
             int min = Integer.MAX_VALUE;
             for(int i : arr){
