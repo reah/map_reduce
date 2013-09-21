@@ -73,7 +73,7 @@ public class Proj1{
 
                 if(targets.isEmpty()){
                     while(matcher.find()){
-                        context.write(new Text(matcher.group()), new DoublePair(1.0, func.f(Double.POSITIVE_INFINITY)));
+                        context.write(new Text(matcher.group().toLowerCase()), new DoublePair(1.0, func.f(Double.POSITIVE_INFINITY)));
                     }
                 }
                 else{
