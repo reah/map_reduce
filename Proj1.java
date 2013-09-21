@@ -153,7 +153,7 @@ public class Proj1{
                 if(sum > 0)
                     context.write(new DoubleWritable(-1 * sum * Math.pow(Math.log(sum), 3) / count), key);
                 else
-                    context.write(new DoubleWritable(-1 * 0), key);
+                    context.write(new DoubleWritable(-1 * 0.0), key);
             }
     }
 
@@ -188,7 +188,7 @@ public class Proj1{
                 for(Text w : values){
                     if(n > N_TO_OUTPUT)
                         break;
-                    context.write(new DoubleWritable(-1 * key.get()), w);
+                    context.write(new DoubleWritable(-1.0 * key.get()), w);
                     n++;
                 }
             }
