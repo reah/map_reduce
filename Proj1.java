@@ -62,12 +62,12 @@ public class Proj1{
 
                 // make a copy of the Matcher for parsing, record indices of targets to list
                 Matcher copy = WORD_PATTERN.matcher(docContents.toString());
-                List targets = new ArrayList<int>();
+                List<Integer> targets = new ArrayList<Integer>();
                 int count = 0;
                 while(copy.find()){
                     String w = copy.group().toLowerCase();
-                    if(w.equals(targetGram.toLowerCase()))
-                        targets.add(count);
+                    if(w.equals(targetGram))
+                        targets.add(new Integer(count));
                     count++;
                 }
 
@@ -77,35 +77,21 @@ public class Proj1{
                     }
                 }
                 else{
-                    // create a HashMap to store words and their distances from target word
                     count = 0;
-                    Map distMap = new HashMap<String,List>();
                     while(matcher.find()){
-                        String w = matcher.group().toLowerCase();
-
+                        String word = matcher.group().toLowerCase();
                         // if word is not target word
-                        if(!w.equals(targetGram.toLowerCase())){
-                            if(!distMap.contains(w))
-                                distMap.put(w, new ArrayList().add(closestDist(targets, count)));
-                            else
-                                distMap.get(w).add(closestDist(targets, count));
-                            }
-                    }
-                    Iterator it = distMap.entrySet().iterator();
-                    while(it.hasNext()){
-                        Map.Entry pair = (Map.Entry)it.next();
-                        for(int i : pair.getValue())
-                            context.write(new Text(pair.getKey()), i);
+                        if(!word.equals(targetGram))
+                            context.write(word, new DoublePair(1.0, func.f(closestDist(targets, count++));
                     }
                 }
-            }
 
         // helper function to calculate shortest distance between target words and current word
-        private int closestDist(int[] arr, int d){
+        private int closestDist(List<Integer> targets, int d){
             int min = Integer.MAX_VALUE;
-            for(int i : arr){
-                if(Math.abs(d - i) < min)
-                    min = Math.abs(d - i);
+            for(Integer i : targets){
+                if(Math.abs(d - i.intValue()) < min)
+                    min = Math.abs(d - i.intValue());
             }
             return min;
         }
