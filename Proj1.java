@@ -85,6 +85,7 @@ public class Proj1{
                             context.write(word, new DoublePair(1.0, func.f(closestDist(targets, count++))));
                     }
                 }
+            }
 
         // helper function to calculate shortest distance between target words and current word
         private int closestDist(List<Integer> targets, int d){
