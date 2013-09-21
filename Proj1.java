@@ -62,12 +62,12 @@ public class Proj1{
 
                 // make a copy of the Matcher for parsing, record indices of targets to list
                 Matcher copy = WORD_PATTERN.matcher(docContents.toString());
-                List<Integer> targets = new ArrayList<Integer>();
+                List<Double> targets = new ArrayList<Double>();
                 double count = 0;
                 while(copy.find()){
                     String w = copy.group().toLowerCase();
                     if(w.equals(targetGram))
-                        targets.add(new Integer(count));
+                        targets.add(new Double((count));
                     count++;
                 }
 
@@ -88,11 +88,11 @@ public class Proj1{
             }
 
         // helper function to calculate shortest distance between target words and current word
-        private double closestDist(List<Integer> targets, double d){
+        private double closestDist(List<Double> targets, double d){
             double min = Double.POSITIVE_INFINITY;
-            for(Integer i : targets){
-                if(Math.abs(d - (double)i.intValue()) < min)
-                    min = Math.abs(d - (double)i.intValue());
+            for(Double i : targets){
+                if(Math.abs(d - Double.valueOf(i) < min)
+                    min = Math.abs(d - Double.valueOf(i));
             }
             return min;
         }
