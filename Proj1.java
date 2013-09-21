@@ -32,7 +32,7 @@ public class Proj1{
     /*
      * Inputs is a set of (docID, document contents) pairs.
      */
-    public static class Map1 extends Mapper<WritableComparable, Text, Text, Text> {
+    public static class Map1 extends Mapper<WritableComparable, Text, Text, DoublePair> {
         /** Regex pattern to find words (alphanumeric + _). */
         final static Pattern WORD_PATTERN = Pattern.compile("\\w+");
 
@@ -58,10 +58,50 @@ public class Proj1{
             throws IOException, InterruptedException {
                 Matcher matcher = WORD_PATTERN.matcher(docContents.toString());
                 Func func = funcFromNum(funcNum);
-
                 // YOUR CODE HERE
 
+                // make a copy of the Matcher for parsing, record indices of targets to list
+                Matcher copy = WORD_PATTERN.matcher(docContents.toString());
+                List targets = new ArrayList<int>();
+                int count = 0;
+                while(copy.find()){
+                    String w = copy.group().toLowerCase();
+                    if(w.equals(targetGram.toLowerCase()))
+                        targets.add(count);
+                    count++;
+                }
+
+                if(targets.isEmpty()){
+                    while(matcher.find()){
+                        context.write(new Text(matcher.group()), new DoublePair(1.0, func.f(Double.POSITIVE_INFINITY)));
+                    }
+                }
+                else{
+                    // create a HashMap to store words and their distances from target word
+                    count = 0;
+                    Map distMap = new HashMap<String,List>();
+                    while(matcher.find()){
+                        String w = matcher.group().toLowerCase();
+
+                        // if word is not target word
+                        if(!w.equals(targetGram.toLowerCase())){
+                            if(!distMap.contains(w))
+                                distMap.put(w, new ArrayList().add(closestDist(targets, count)));
+                            else
+                                distMap.get(w).add(closestDist(targets, count));
+                            }
+                    }
+                }
             }
+
+        private int closestDist(int[] arr, int d){
+            int min = Integer.MAX_VALUE;
+            for(int i : arr){
+                if(Math.abs(d - i) < min)
+                    min = Math.abs(d - i);
+            }
+            return min;
+        }
 
         /** Returns the Func corresponding to FUNCNUM*/
         private Func funcFromNum(int funcNum) {
