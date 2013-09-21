@@ -132,20 +132,27 @@ public class Proj1{
         @Override
             public void reduce(Text key, Iterable<Text> values,
                     Context context) throws IOException, InterruptedException {
-
                  // YOUR CODE HERE
 
             }
     }
 
 
-    public static class Reduce1 extends Reducer<Text, Text, DoubleWritable, Text> {
+    public static class Reduce1 extends Reducer<Text, DoublePair, DoubleWritable, Text> {
         @Override
-            public void reduce(Text key, Iterable<Text> values,
+            public void reduce(Text key, Iterable<DoublePair> values,
                     Context context) throws IOException, InterruptedException {
-
                 // YOUR CODE HERE
-
+                double sum = 0.0;
+                int count = 0;
+                for(DoublePair pair : values){
+                    count += pair.getDouble1;
+                    sum += pair.getDouble2;
+                }
+                if(sum > 0)
+                    context.write(new DoubleWriteable(sum * pow(Math.log(sum), 3) / count), key);
+                else
+                    context.write(new DoubleWriteable(0), key);
             }
     }
 
