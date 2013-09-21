@@ -145,15 +145,15 @@ public class Proj1{
                     Context context) throws IOException, InterruptedException {
                 // YOUR CODE HERE
                 double sum = 0.0;
-                int count = 0;
+                double count = 0.0;
                 for(DoublePair pair : values){
                     count += pair.getDouble1();
                     sum += pair.getDouble2();
                 }
                 if(sum > 0)
-                    context.write(new DoubleWritable(-1 * sum * Math.pow(Math.log(sum), 3) / count), key);
+                    context.write(new DoubleWritable(-1.0 * sum * Math.pow(Math.log(sum), 3) / count), key);
                 else
-                    context.write(new DoubleWritable(-1 * 0.0), key);
+                    context.write(new DoubleWritable(-1.0 * 0.0), key);
             }
     }
 
