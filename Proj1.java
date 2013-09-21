@@ -188,7 +188,7 @@ public class Proj1{
                 for(Text w : values){
                     if(n > N_TO_OUTPUT)
                         break;
-                    context.write(-1 * key.get(), w);
+                    context.write(new DoubleWritable(-1 * key.get()), w);
                     n++;
                 }
             }
