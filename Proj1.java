@@ -147,8 +147,8 @@ public class Proj1{
                 double sum = 0.0;
                 int count = 0;
                 for(DoublePair pair : values){
-                    count += pair.getDouble1;
-                    sum += pair.getDouble2;
+                    count += pair.getDouble1();
+                    sum += pair.getDouble2();
                 }
                 if(sum > 0)
                     context.write(new DoubleWriteable(sum * pow(Math.log(sum), 3) / count), key);
