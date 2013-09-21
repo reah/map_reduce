@@ -151,7 +151,7 @@ public class Proj1{
                     sum += pair.getDouble2();
                 }
                 if(sum > 0)
-                    context.write(new DoubleWriteable(sum * pow(Math.log(sum), 3) / count), key);
+                    context.write(new DoubleWriteable(sum * Math.pow(Math.log(sum), 3) / count), key);
                 else
                     context.write(new DoubleWriteable(0), key);
             }
