@@ -82,7 +82,7 @@ public class Proj1{
                         // if word is not target word
                         if(!word.equals(targetGram)){
                             context.write(new Text(word), new DoublePair(1.0, func.f(closestDist(targets, count))));
-                            System.out.println(word + " " + func.f(closestDist(targets, count)));
+                            System.out.println(word + " " + closestDist(targets, count) + " _ " + func.f(closestDist(targets, count)));
                             count++;
                         }
                     }
