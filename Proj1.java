@@ -72,17 +72,18 @@ public class Proj1{
                 }
 
                 if(targets.isEmpty()){
-                    while(matcher.find()){
+                    while(matcher.find())
                         context.write(new Text(matcher.group().toLowerCase()), new DoublePair(1.0, func.f(Double.POSITIVE_INFINITY)));
-                    }
                 }
                 else{
                     count = 0;
                     while(matcher.find()){
                         String word = matcher.group().toLowerCase();
                         // if word is not target word
-                        if(!word.equals(targetGram))
+                        if(!word.equals(targetGram)){
                             context.write(new Text(word), new DoublePair(1.0, func.f(closestDist(targets, count++))));
+                            System.println(key + " " + new DoublePair(1.0, func.f(Double.POSITIVE_INFINITY)).getDouble2());
+                        }
                     }
                 }
             }
