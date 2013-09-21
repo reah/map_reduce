@@ -128,13 +128,19 @@ public class Proj1{
     }
 
     /** Here's where you'll be implementing your combiner. It must be non-trivial for you to receive credit. */
-    public static class Combine1 extends Reducer<Text, Text, Text, Text> {
+    public static class Combine1 extends Reducer<Text, DoublePair, Text, DoublePair> {
 
         @Override
-            public void reduce(Text key, Iterable<Text> values,
+            public void reduce(Text key, Iterable<DoublePair> values,
                     Context context) throws IOException, InterruptedException {
                  // YOUR CODE HERE
-
+                double sum = 0.0;
+                double count = 0.0;
+                for(DoublePair pair : values){
+                    count += pair.getDouble1();
+                    sum += pair.getDouble2();
+                }
+                context.write(key, new DoublePair(count, sum));
             }
     }
 
