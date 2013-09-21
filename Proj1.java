@@ -246,7 +246,7 @@ public class Proj1{
 
             /* You may need to change things here */
             firstJob.setMapOutputKeyClass(Text.class);
-            firstJob.setMapOutputValueClass(Text.class);
+            firstJob.setMapOutputValueClass(DoublePair.class);
             firstJob.setOutputKeyClass(DoubleWritable.class);
             firstJob.setOutputValueClass(Text.class);
             /* End region where we expect you to perhaps need to change things. */
