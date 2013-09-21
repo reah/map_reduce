@@ -82,7 +82,7 @@ public class Proj1{
                         String word = matcher.group().toLowerCase();
                         // if word is not target word
                         if(!word.equals(targetGram))
-                            context.write(word, new DoublePair(1.0, func.f(closestDist(targets, count++));
+                            context.write(word, new DoublePair(1.0, func.f(closestDist(targets, count++))));
                     }
                 }
 
