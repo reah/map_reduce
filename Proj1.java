@@ -91,6 +91,12 @@ public class Proj1{
                                 distMap.get(w).add(closestDist(targets, count));
                             }
                     }
+                    Iterator it = distMap.entrySet().iterator();
+                    while(it.hasNext()){
+                        Map.Entry pair = (Map.Entry)it.next();
+                        for(int i : pair.getValue())
+                            context.write(new Text(pair.getKey()), i);
+                    }
                 }
             }
 
