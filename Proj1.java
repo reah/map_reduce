@@ -67,7 +67,7 @@ public class Proj1{
                 while(copy.find()){
                     String w = copy.group().toLowerCase();
                     if(w.equals(targetGram))
-                        targets.add(new Double((count));
+                        targets.add(new Double(count));
                     count++;
                 }
 
@@ -91,7 +91,7 @@ public class Proj1{
         private double closestDist(List<Double> targets, double d){
             double min = Double.POSITIVE_INFINITY;
             for(Double i : targets){
-                if(Math.abs(d - Double.valueOf(i) < min)
+                if(Math.abs(d - Double.valueOf(i) < min))
                     min = Math.abs(d - Double.valueOf(i));
             }
             return min;
