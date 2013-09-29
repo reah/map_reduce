@@ -1,0 +1,59 @@
+Reah Miyara
+cs61c-dv
+MapReduce Proj 1-2
+ec2experience.txt
+
+--------------------------------------------------------------------------------------------------------------
+
+How long did each of the six runs take? How many mappers and how many reducers did you use?
+
+    Run 	Dataset   Combiner   Size	Time  			  Mappers           Reducers 	  
+-------------|---------|----------|------|-----------------------------|----------------|----------------|
+(freedom, 0) 	2005 	  off	  5        20min 2s + 27s  = 20min 29s   80 + 32 = 112      32 + 1 = 33
+(freedom, 0) 	2005 	  on	  5    	   4min 42s + 27s  = 5min  9s    80 + 32 = 112      32 + 1 = 33
+(capital, 0)	2006 	  on	  5        14min 37s + 34s = 15min 11s   316 + 32 = 348     32 + 1 = 33
+(capital, 0)	2006 	  on	  9	   8min 27s + 29s  = 8min 56s    316 + 32 = 348     32 + 1 = 33
+(landmark, 1) 	2006 	  on	  9	   8min 25s + 29s  = 8min 54s    316 + 32 = 348     32 + 1 = 33
+(monument, 2) 	2006 	  on	  9	   8min 21s + 33s  = 8min 54s    316 + 32 = 348     32 + 1 = 33
+
+--------------------------------------------------------------------------------------------------------------
+
+For the two runs with (freedom, 0), how much faster did your code run on the 5 workers with the combiner turned on than with the combiner turned off? Express your answer as a percentage.
+
+[(20 * 60 + 29) - (5 * 60 + 9)] / (5 * 60 + 9) * 100 = 297.735%
+
+The speed increase of running my code with 5 workers and the combiner on versus 5 workers and the combiner off was approximately 300% .
+
+--------------------------------------------------------------------------------------------------------------
+
+For the runs on the 2006 dataset, what was the median processing rate of input for the tests using 5 workers? Using 9 workers? Express your answers in terms of GB/s. (1 GB = 2^30 bytes)
+
+Median processing rate for 5 workers: 1.956 x 10^-2 GB/s 
+Median processing rate for 9 workers: 3.338 x 10^-2 GB/s 
+
+--------------------------------------------------------------------------------------------------------------
+
+How much faster was your run of (capital, 0) with 9 workers over 5 workers? Assuming your code is fully parallelizable, how much faster would a run with 9 workers be compared to a run with 5 workers? Express both numbers as a percentage. How well, in your opinion, does Hadoop parallelize your code? Justify your answer in 1-2 sentences.
+
+(capital,0) with 9 workers is approximately 70% faster than with 5 workers as shown by the calculations below:
+[(15 * 60 + 11) - (8 * 60 + 56)] / [(8 * 60 + 56)] * 100 = 69.963% 
+
+Assuming my code is fully parallelizable, a run with 9 workers is approximately 80% faster than with 5 workers as shown by the calculations below:
+(9-5) / 5 * 100 = 80%
+
+Hadoop parallelizes code fairly well. It reached approximately within 10 percent of the maximum parallelization for my MapReduce implementation.
+
+--------------------------------------------------------------------------------------------------------------
+
+For a single run on the 2006 dataset, what was the price per GB processed on with 5 workers? With 9 workers? (Recall that an extra-large instance costs $0.58 per hour, rounded up to the nearest hour.) Express your answers in terms of dollars/GB.
+
+Price per GB processed with 5 workers: $.03254/GB
+Price per GB processed with 9 workers: $.03254/GB
+
+--------------------------------------------------------------------------------------------------------------
+
+How much total money did you use to complete this project?
+
+Total Money Spent to complete this project: $8.12
+
+--------------------------------------------------------------------------------------------------------------
