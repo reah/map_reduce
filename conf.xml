@@ -4,12 +4,12 @@
 
 <property>
 <name>targetWord</name>
-<value>jury</value>
+<value>monument</value>
 </property>
 
 <property>
 <name>funcNum</name>
-<value>0</value>
+<value>2</value>
 </property>
 
 </configuration>
