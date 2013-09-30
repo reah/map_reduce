@@ -47,8 +47,8 @@ Hadoop parallelizes code fairly well. It reached approximately within 10 percent
 
 For a single run on the 2006 dataset, what was the price per GB processed on with 5 workers? With 9 workers? (Recall that an extra-large instance costs $0.58 per hour, rounded up to the nearest hour.) Express your answers in terms of dollars/GB.
 
-Price per GB processed with 5 workers: $.03254/GB
-Price per GB processed with 9 workers: $.03254/GB
+Price per GB processed with 5 workers: $.1627/GB
+Price per GB processed with 9 workers: $.2928/GB
 
 --------------------------------------------------------------------------------------------------------------
 
